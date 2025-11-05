@@ -1,0 +1,152 @@
+/* Copied strict black & white styles (syls.css) */
+
+/* Grunnstílar - strict black & white theme */
+:root{
+	--bg: #ffffff;
+	--text: #000000;
+	--muted: #444444;
+	--accent: #000000;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
+body{background:var(--bg);color:var(--text);line-height:1.5}
+.container{max-width:900px;margin:0 auto;padding:1rem}
+
+/* Header forced to pure black background with white text */
+header{background:#000000;color:#ffffff;padding:1rem 0}
+header h1{margin:0}
+header nav{margin-top:0.5rem}
+header nav a{color:rgba(255,255,255,0.95);margin-right:1rem;text-decoration:none}
+
+main{padding:2rem 0}
+#hero{background:linear-gradient(90deg,rgba(0,0,0,0.04),transparent);padding:1.5rem;border-radius:8px}
+button{background:var(--accent);color:#fff;border:none;padding:0.6rem 1rem;border-radius:6px;cursor:pointer}
+button:hover{opacity:0.95}
+.muted{color:var(--muted)}
+
+footer{padding:1rem 0;text-align:center;color:var(--muted);border-top:1px solid rgba(0,0,0,0.05);margin-top:2rem}
+
+/* Dökkt þema (optional invert) */
+body.dark{
+	--bg:#000000;
+	--text:#ffffff;
+	--muted:#bbbbbb;
+	--accent:#ffffff;
+}
+
+/* Svarandi */
+@media (max-width:600px){
+	header{padding:0.75rem 0}
+	.container{padding:0.75rem}
+}
+
+/* Hamburger & left sidebar */
+.hamburger{background:transparent;border:none;color:inherit;cursor:pointer;padding:0.25rem;margin-right:0.75rem;display:inline-flex;align-items:center}
+.hamburger:focus{outline:2px solid rgba(255,255,255,0.22);border-radius:6px}
+.hamburger-box{width:28px;height:20px;display:inline-block;position:relative}
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after{
+	display:block;
+	background:#ffffff !important;
+	height:2px;
+	border-radius:2px;
+	position:absolute;
+	left:0;
+	width:100%;
+	transition:transform 260ms cubic-bezier(.2,.9,.3,1), top 260ms cubic-bezier(.2,.9,.3,1), opacity 180ms ease;
+	transform-origin:center;
+}
+.hamburger-inner{top:50%;transform:translateY(-50%)}
+.hamburger-inner::before{content:'';top:calc(50% - 8px)}
+.hamburger-inner::after{content:'';top:calc(50% + 8px)}
+
+.sidebar{position:fixed;left:0;top:0;height:100vh;width:260px;background:var(--bg);color:var(--text);box-shadow:2px 0 12px rgba(0,0,0,0.12);transform:translateX(-100%);transition:transform 260ms ease;z-index:1000;padding:1rem;overflow:auto}
+.sidebar-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.sidebar-close{background:transparent;border:none;font-size:1.25rem;cursor:pointer;color:var(--text)}
+.sidebar-nav a{display:block;padding:0.5rem 0;color:var(--text);text-decoration:none}
+.sidebar-nav a:hover{text-decoration:underline}
+
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:900;opacity:0;visibility:hidden;transition:opacity 200ms ease,visibility 200ms ease}
+
+/* When menu open */
+body.menu-open .sidebar{transform:translateX(0)}
+body.menu-open .overlay{opacity:1;visibility:visible}
+
+/* Ensure header content aligns with hamburger on small screens */
+@media (max-width:700px){
+	header .container{display:flex;align-items:center;gap:0.5rem}
+	header nav{margin-left:auto}
+}
+
+/* Remove browser-default focus/visited colors and ensure BW focus */
+a, a:visited { color: inherit; }
+a:focus, a:focus-visible, button:focus, button:focus-visible, .sidebar-close:focus, .hamburger:focus, .hamburger:focus-visible {
+	outline:2px solid rgba(0,0,0,0.2);
+	outline-offset:2px;
+}
+body.dark a:focus, body.dark a:focus-visible, body.dark button:focus, body.dark button:focus-visible, body.dark .hamburger:focus {
+	outline:2px solid rgba(255,255,255,0.22);
+}
+
+/* Strict helper: add class `strict-bw` to <body> to enforce the theme strongly */
+body.strict-bw{
+	--bg:#ffffff !important;
+	--text:#000000 !important;
+	--muted:#444444 !important;
+	--accent:#000000 !important;
+	background:var(--bg) !important;
+	color:var(--text) !important;
+}
+body.strict-bw header{background:#000000 !important;color:#ffffff !important}
+body.strict-bw header *{color:inherit !important}
+body.strict-bw header a{color:rgba(255,255,255,0.95) !important}
+body.strict-bw button, body.strict-bw .button, body.strict-bw input[type="button"], body.strict-bw input[type="submit"]{background:#000000 !important;color:#ffffff !important;border-color:#000000 !important}
+body.strict-bw .hamburger-inner, body.strict-bw .hamburger-inner::before, body.strict-bw .hamburger-inner::after{background:#ffffff !important}
+body.strict-bw a, body.strict-bw a:visited{color:var(--text) !important}
+body.strict-bw .muted{color:var(--muted) !important}
+body.strict-bw .hero, body.strict-bw #hero{background:linear-gradient(90deg,rgba(0,0,0,0.04),transparent) !important}
+body.strict-bw .overlay{background:rgba(0,0,0,0.35) !important}
+
+/* Product grid and cards */
+.catalog-header{display:flex;align-items:center;justify-content:space-between;margin:1rem 0}
+.catalog-actions{display:flex;gap:0.5rem;align-items:center}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.product-card{background:var(--bg);border:1px solid rgba(0,0,0,0.06);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.card-media{background:#f6f6f6;border:0;padding:0;display:block;width:100%;height:0;padding-bottom:125%;position:relative;overflow:hidden}
+.card-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card-body{padding:0.75rem;display:flex;flex-direction:column;gap:0.5rem}
+.card-actions{margin-top:auto;display:flex;gap:0.5rem}
+.btn{background:var(--accent);color:var(--bg);padding:0.5rem 0.75rem;border-radius:6px;border:0;cursor:pointer}
+.btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--text)}
+.btn.small{padding:0.2rem 0.4rem;font-size:0.9rem}
+
+/* Cart drawer */
+.cart-drawer{position:fixed;right:0;top:0;height:100vh;width:360px;background:var(--bg);color:var(--text);box-shadow:-4px 0 18px rgba(0,0,0,0.12);transform:translateX(110%);transition:transform 260ms ease;z-index:1200;display:flex;flex-direction:column}
+.cart-header{display:flex;align-items:center;justify-content:space-between;padding:1rem;border-bottom:1px solid rgba(0,0,0,0.04)}
+.cart-items{padding:1rem;flex:1;overflow:auto}
+.cart-line{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px dashed rgba(0,0,0,0.03)}
+.cart-footer{padding:1rem;border-top:1px solid rgba(0,0,0,0.04)}
+.cart-total{font-weight:700;margin-bottom:0.5rem}
+.cart-count{background:#ffffff;color:#000;border-radius:999px;padding:0.15rem 0.45rem;margin-left:0.5rem;border:1px solid rgba(0,0,0,0.06)}
+
+body.menu-open .cart-drawer{transform:translateX(0)}
+body.menu-open .overlay{opacity:1;visibility:visible}
+
+/* Product modal */
+.product-modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:1300}
+.modal-inner{background:var(--bg);color:var(--text);max-width:900px;width:95%;border-radius:8px;padding:1rem;box-shadow:0 8px 40px rgba(0,0,0,0.2)}
+.modal-product{display:flex;gap:1rem}
+.modal-product img{width:320px;height:420px;object-fit:cover;border-radius:6px}
+.modal-info{flex:1}
+.modal-actions{display:flex;gap:0.5rem;margin-top:1rem}
+
+/* Responsive */
+@media (max-width:900px){
+	.product-grid{grid-template-columns:repeat(2,1fr)}
+	.modal-product{flex-direction:column}
+	.modal-product img{width:100%;height:auto}
+}
+@media (max-width:600px){
+	.product-grid{grid-template-columns:1fr}
+	.cart-drawer{width:100%}
+}

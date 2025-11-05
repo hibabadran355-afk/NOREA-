@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NOREA — Women's Clothing</title>
+  <link rel="stylesheet" href="syls.css">
+</head>
+<body class="strict-bw">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1>NOREA</h1>
+        <p class="tag">Fine women's clothing </p>
+      </div>
+
+      <nav class="main-nav">
+        <a href="#collections">Collections</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="actions">
+        <button id="themeBtn" class="icon-btn" aria-label="Toggle theme">🌓</button>
+        <button id="cartBtn" class="icon-btn" aria-label="Open cart">
+          🛒 <span id="cartCount" class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="hero" class="hero">
+      <div class="hero-inner">
+        <h2>New Season — Timeless Pieces</h2>
+        <p>Shop our curated selection of high-quality women's clothing. Clean design, clear fit, great fabrics.</p>
+      </div>
+    </section>
+
+    <section id="catalog">
+      <div class="catalog-header">
+        <h3>Shop</h3>
+        <div class="catalog-actions">
+          <input id="searchInput" type="search" placeholder="Search products..." aria-label="Search products">
+          <select id="sortSelect" aria-label="Sort products">
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price: Low &rarr; High</option>
+            <option value="price-desc">Price: High &rarr; Low</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="productGrid" class="product-grid" aria-live="polite">
+        <!-- product cards injected here -->
+      </div>
+    </section>
+
+    <section id="about">
+      <h3>About NOREA</h3>
+      <p>We create simple, elegant pieces with attention to fit and quality. This is a static demo storefront — payments and inventory are mocked.</p>
+    </section>
+  </main>
+
+  <!-- Cart drawer -->
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <h4>Your cart</h4>
+      <button id="cartClose" class="sidebar-close" aria-label="Close cart">×</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: <span id="cartTotal">$0.00</span></div>
+      <button id="checkoutBtn" class="btn">Checkout</button>
+    </div>
+  </aside>
+
+  <div id="overlay" class="overlay" hidden></div>
+
+  <!-- Product modal -->
+  <div id="productModal" class="product-modal" hidden aria-hidden="true">
+    <div class="modal-inner">
+      <button id="modalClose" class="sidebar-close" aria-label="Close product">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <footer class="container footer">
+    <p>&copy; 2025 NOREA — Demo storefront</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
