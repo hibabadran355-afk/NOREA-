@@ -1,0 +1,30 @@
+[
+  {
+    "id": "p-001",
+    "title": "Classic White Shirt",
+    "price": 59.00,
+    "image": "/images/unsplash_PKMvkg7vnUo.png",
+    "description": "A crisp classic shirt in breathable cotton. Perfect for day or night."
+  },
+  {
+    "id": "p-002",
+    "title": "Tailored Black Blazer",
+    "price": 149.00,
+    "image": "https://via.placeholder.com/800x1000?text=Black+Blazer",
+    "description": "Sharp tailoring with soft lining for comfort. Elevate any outfit."
+  },
+  {
+    "id": "p-003",
+    "title": "Silk Midi Dress",
+    "price": 199.00,
+    "image": "https://via.placeholder.com/800x1000?text=Silk+Midi+Dress",
+    "description": "Beautiful drape and lightweight silk for a timeless silhouette."
+  },
+  {
+    "id": "p-004",
+    "title": "Cozy Knit Sweater",
+    "price": 89.00,
+    "image": "https://via.placeholder.com/800x1000?text=Cozy+Sweater",
+    "description": "Soft knit for cool days. Relaxed fit with refined finishings."
+  }
+]
